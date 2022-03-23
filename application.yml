@@ -1,27 +1,4 @@
-server:
-  port: 9300  #在微服务项目中，通常会叠加
-eureka:
-  client:
-    service-url:
-      defaultZone: http://LagouCouldEurekaServiceB:9200/eureka , http://LagouCouldEurekaServiceA:9201/eureka
-    registry-fetch-interval-seconds: 30 #每隔30秒就拉取服务列表
-  instance: #当前eureka实例的主机名
-    #    hostname: localhost
-    prefer-ip-address: true
-    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}@project.version@
-spring:
-  application:
-    name: lagou-cloud-gateway
-  cloud:
-    gateway:
-      routes: #配置路由
-        - id : lagou-service-router
-          uri : lb://lagou-service-paga
-          predicates:
-          - Path=/page/**
-        - id : lagou-service-router
-          uri: lb://lagou-service-product
-          predicates:
-          - Path=/product/**
-          filters:
-           - StripPrefix=1
+mysql:
+ user: 张san
+ponsen:
+  name:lisi
